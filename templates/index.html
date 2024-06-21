@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flask-File Drag Drop System</title>
+  {{ dropzone.load_css() }}
+  {{ dropzone.style('border: 2px dashed #0087F7; margin: 10%; min-height: 400px;') }}
+  
+  
+  <style>
+   
+   body {background-color: powderblue;}
+    .submitButton {width: 120px; height: 60px; font-size: 20px;}
+
+  
+    h1{
+      margin-top: 50px;
+    }
+  </style>
+
+</head>
+<body>
+
+	<h1 style="text-align:center;">Welcome to File Organizer</h1>
+  
+  {{ dropzone.create(action='/uploadFiles') }}
+  {{ dropzone.load_js() }}
+  {{ dropzone.config(max_file_size=5000)}}   
+  <form class="grid" action="/result" method="GET">
+
+    <center><button type="submit" class="submitButton">Organize</button></center>
+    
+  </form>
+
+  <form class="grid" action="/delete" method="GET">
+
+    <center><button type="submit" class="deleteButton">Delete</button></center>
+    
+  </form>
+
+</body>
+</html>
