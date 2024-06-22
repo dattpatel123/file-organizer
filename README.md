@@ -8,10 +8,15 @@ File Organizer is a powerful local application designed to simplify and streamli
 
 ## Installation
  - Ensure you have Python and Pip installed
- - Clone the repo
+ - Clone the repo and cd into it
 
 ```bash
   git clone https://github.com/dattpatel123/file-organizer.git
+```
+
+- Open into file-organizer directory
+```bash
+  cd file-organizer
 ```
 
 - Get a Google Gemini API Key
@@ -39,7 +44,9 @@ File Organizer is a powerful local application designed to simplify and streamli
     python main.py OR python3 main.py
 ```
 
-- Now, simply goto 127.0.0.1 and follow instructions to get files organized
+- Now, simply goto http://127.0.0.1:5000 and follow instructions to get files organized
+
+- Once you upload files, it will organize them and generate a zip to download which will contain categorized folders, inside which are your files 
 
 
 ## Features
