@@ -6,6 +6,15 @@ File Organizer is a powerful local application designed to simplify and streamli
 
 
 
+## Important:
+
+- #### It may take a bit to upload all the files so please wait for all files to completely upload
+
+- #### Also, it may take a little bit to organize files after clicking organize so please wait and do not click out of website.
+
+- #### It only accepts files (images, videos, audios, softwares, etc) to organize, and NOT folders. Dragging folders will add everything in that folder to be organized, which will lead to a different organization
+
+
 ## Installation
  - Ensure you have Python and Pip installed
  - Clone the repo and cd into it
