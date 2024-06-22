@@ -14,7 +14,7 @@
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
         }
-        button{
+        .button1{
             margin: 0;
             position: absolute;
             top: 50%;
@@ -25,6 +25,17 @@
             height: 50px;
             font-size: 15px;
         }
+        .button2{
+            margin: 0;
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 140px;
+            height: 60px;
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -33,7 +44,13 @@
         <h1>Click the button below to download the file.</h1>
         <form class="grid" action="/download" method="GET">
 
-            <center><button type="submit" value="Submit">Download</button></center
+            <center><button type="submit" class="button1">Download</button></center>
+        </form>
+
+        <form class="grid" action="/" method="GET">
+
+            <center><button type="submit" class="button2">Go Back</button></center>
+            
         </form>
   
 </body>

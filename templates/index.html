@@ -4,39 +4,42 @@
   <meta charset="UTF-8">
   <title>Flask-File Drag Drop System</title>
   {{ dropzone.load_css() }}
-  {{ dropzone.style('border: 2px dashed #0087F7; margin: 10%; min-height: 400px;') }}
+  {{ dropzone.style('border: 2px dashed #0087F7; margin: 5%; min-height: 400px;') }}
   
   
   <style>
    
    body {background-color: powderblue;}
-    .submitButton {width: 120px; height: 60px; font-size: 20px;}
-
+    h1{margin-top: 50px; text-align: center;}
+    h2{margin-top: 50px; text-align: center;}
+    .submitButton {width: 120px; height: 60px; font-size: 20px; margin-bottom: 10px;}
+    .restartButton {width: 120px; height: 50px; font-size: 20px;}
   
-    h1{
-      margin-top: 50px;
-    }
+    
+
   </style>
 
 </head>
 <body>
 
-	<h1 style="text-align:center;">Welcome to File Organizer</h1>
-  
+	<h1>Welcome to File Organizer</h1>
+  <h2>To Begin: Upload Your Files and Click Organize </h2>
+  <h2>If You Upload Wrong Files / Want To Delete A File: Click Restart and Upload Files Again</h2>
+
   {{ dropzone.create(action='/uploadFiles') }}
   {{ dropzone.load_js() }}
   {{ dropzone.config(max_file_size=5000)}}   
-  <form class="grid" action="/result" method="GET">
+  <form class="a" action="/result" method="GET">
 
     <center><button type="submit" class="submitButton">Organize</button></center>
-    
+
   </form>
 
-  <form class="grid" action="/delete" method="GET">
+  <form class="b" action="/restart" method="GET">
 
-    <center><button type="submit" class="deleteButton">Delete</button></center>
-    
-  </form>
+    <center><button type="submit" class="restartButton">Restart</button></center>
+     
+  </form> 
 
 </body>
 </html>
