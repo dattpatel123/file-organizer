@@ -38,7 +38,7 @@ File Organizer is a powerful local application designed to simplify and streamli
 ```bash
     macOS/Linux:
      1. python3 -m venv .venv
-     2. source myenv/bin/activate
+     2. source .venv/bin/activate
 
     Windows:
      1. python -m venv .venv
