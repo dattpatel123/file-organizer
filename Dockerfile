@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Set environment variables
 ENV FLASK_RUN_HOST=0.0.0.0
-ENV GOOGLE_API_KEY="AIzaSyD71MdPeL2jqv9M-vgK8Jgk2ex_jNYWLBU"
+
 
 # Copy files
 COPY requirements.txt .
