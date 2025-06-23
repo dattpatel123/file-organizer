@@ -1,0 +1,51 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy container app to Azure Web App - fileorg
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: 'ubuntu-latest'
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Log in to registry
+      uses: docker/login-action@v2
+      with:
+        registry: https://fileorganizer.azurecr.io/
+        username: ${{ secrets.AzureAppService_ContainerUsername_bb19259e1cb445c1960f914a0fbe20aa }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_b0ebb4cda8494dc49db66659779a314d }}
+
+    - name: Build and push container image to registry
+      uses: docker/build-push-action@v3
+      with:
+        push: true
+        tags: fileorganizer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_bb19259e1cb445c1960f914a0fbe20aa }}/fileorganizer:${{ github.sha }}
+        file: ./Dockerfile
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+    - name: Deploy to Azure Web App
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'fileorg'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_38dd35b7fc324f18aa9861ce4b24075f }}
+        images: 'fileorganizer.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_bb19259e1cb445c1960f914a0fbe20aa }}/fileorganizer:${{ github.sha }}'
